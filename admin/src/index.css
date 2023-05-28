@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 9px;
+}
+body {
+  margin: 0;
+}
+button {
+  padding: 1rem;
+  border: transparent;
+  transition: ease-in-out 0.2s;
+}
+button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

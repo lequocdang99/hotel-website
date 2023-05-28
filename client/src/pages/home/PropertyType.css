@@ -1,0 +1,29 @@
+.type > h1 {
+  position: relative;
+  left: 3rem;
+  margin: 3rem 0rem;
+}
+.type-items {
+  display: inline-block;
+  width: 20%;
+}
+
+.type-items img {
+  display: block;
+  width: 25rem;
+  height: 25rem;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3rem;
+}
+
+.type-items h1,
+.type-items h2 {
+  position: relative;
+  left: 4rem;
+}
+
+.type-items h2 {
+  font-weight: lighter;
+}

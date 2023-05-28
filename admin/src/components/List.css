@@ -1,0 +1,75 @@
+#list {
+  padding: 3rem;
+}
+#list h1 {
+  display: inline-block;
+  color: rgb(126, 126, 126);
+}
+#list table {
+  width: 100%;
+  border: solid 1px rgb(233, 233, 233);
+  text-align: left;
+  font-size: 15px;
+  border-collapse: collapse;
+}
+#list tr {
+  border: solid 1px rgb(233, 233, 233);
+}
+#list th,
+#list td:not(.desc) {
+  padding: 1rem;
+  max-width: fit-content;
+}
+#list tfoot i {
+  color: rgb(126, 126, 126);
+}
+#icon {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.desc {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: normal;
+  padding: 1rem;
+  white-space: nowrap;
+}
+.status-booked,
+.status-checkin,
+.status-checkout {
+  color: green;
+  border-radius: 5px;
+  padding: a uto;
+}
+.status-booked {
+  background-color: coral;
+}
+.status-checkin {
+  background-color: chartreuse;
+}
+.status-checkout {
+  background-color: lavender;
+}
+#new-btn {
+  display: inline;
+  float: right;
+  color: green;
+  border: solid 1px green;
+  padding: 1rem;
+}
+.delete-btn {
+  color: red;
+  border: solid 1px red;
+}
+.delete-btn,
+.edit-btn,
+#new-btn {
+  border-radius: 3px;
+  background-color: transparent;
+}
+.edit-btn {
+  color: dodgerblue;
+  border: solid 1px dodgerblue;
+}

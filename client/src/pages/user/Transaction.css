@@ -1,0 +1,41 @@
+.transaction {
+  width: 100%;
+  padding: 3rem;
+  font-size: 12px;
+}
+.transaction table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.transaction thead tr th {
+  background-color: rgb(50, 164, 193);
+  color: white;
+}
+.transaction td,
+.transaction th {
+  font-weight: normal;
+  border: solid 1px rgb(233, 233, 233);
+  padding: 1rem;
+  text-align: left;
+}
+.transaction tr:nth-child(odd) {
+  background-color: rgb(242, 242, 242);
+}
+.status-booked,
+.status-checkin,
+.status-checkout {
+  color: green;
+  padding: 1rem;
+  border: transparent;
+  border-radius: 5px;
+}
+.status-booked {
+  background-color: coral;
+}
+.status-checkin {
+  background-color: chartreuse;
+}
+.status-checkout {
+  background-color: lavender;
+}

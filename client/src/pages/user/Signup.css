@@ -1,0 +1,33 @@
+.signup {
+  width: 50%;
+  margin: 10rem auto;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-title {
+  margin: 2rem auto;
+  color: black;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.signup-input {
+  background-color: rgb(232, 240, 254);
+  padding: 3rem 2rem;
+  margin: 1rem auto;
+  border: solid gray;
+  border-radius: 5px;
+  width: 50rem;
+}
+
+#signup-button {
+  margin: 1rem auto;
+  width: 50rem;
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+}

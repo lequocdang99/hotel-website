@@ -1,0 +1,89 @@
+.searchListItem {
+  display: inline;
+  float: right;
+  width: 70%;
+  margin: 3rem 10rem 1rem 0rem;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  background-color: white;
+}
+.searchListItem img {
+  display: inline;
+  float: left;
+  height: 24rem;
+  width: 24rem;
+  margin: 1rem;
+  object-fit: cover;
+}
+
+.searchListItem-description {
+  display: inline-block;
+  margin: 1rem;
+  height: 24rem;
+  width: 50%;
+  object-fit: cover;
+  line-height: 2.5rem;
+}
+
+.searchListItem-description p {
+  font-size: 1.5rem;
+}
+
+.searchListItem-description h1 {
+  font-size: 2.5rem;
+  color: rgb(2, 113, 194);
+}
+.searchListItem-description h2 {
+  font-size: 12px;
+}
+
+.tag {
+  width: fit-content;
+  color: white;
+  background-color: green;
+  border-radius: 1rem;
+  padding: 0rem 1rem;
+}
+
+.freeCancel {
+  color: green;
+}
+
+.searchListItem-price {
+  display: inline;
+  float: right;
+  height: 24rem;
+  width: 22%;
+  margin: 2rem 1rem;
+  text-align: right;
+  line-height: 3.5rem;
+  font-size: 1.2rem;
+}
+
+.rateText {
+  display: block;
+  float: left;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+.rate {
+  display: inline;
+  padding: 1rem;
+  color: white;
+  background-color: rgb(0, 52, 128);
+}
+.price {
+  margin-top: 7rem;
+  font-weight: normal;
+  font-size: 3rem;
+}
+
+.searchListItem-price > p {
+  opacity: 0.5;
+}
+
+.searchListItem-price button {
+  width: 100%;
+}

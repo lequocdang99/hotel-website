@@ -1,0 +1,65 @@
+.hotel {
+  margin: 2rem;
+}
+
+.hotel > h1 {
+  position: relative;
+  display: block;
+  left: 1rem;
+  margin: 3rem 0rem;
+}
+
+.hotel-items {
+  display: inline-block;
+  width: 33%;
+}
+
+.hotel-items > img {
+  display: block;
+  height: 40rem;
+  width: 100%;
+  object-fit: cover;
+  padding: 1rem;
+}
+
+.hotel #name,
+.hotel #city,
+.hotel #price,
+.hotel #rate,
+.hotel #type {
+  position: relative;
+  left: 1rem;
+  margin: 1rem 0rem;
+}
+
+.hotel #name {
+  color: purple;
+  text-decoration: underline;
+}
+.hotel #name:hover {
+  cursor: pointer;
+}
+
+.hotel #rate,
+.hotel #type {
+  display: inline;
+}
+
+.hotel #rate {
+  background-color: rgb(0, 52, 128);
+  color: white;
+  padding: 0.5rem;
+  margin: 1rem 2rem 1rem 0rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.hotel #city {
+  font-weight: lighter;
+  font-size: 2rem;
+}
+
+.hotel #price,
+.hotel #type {
+  font-size: 1.5rem;
+}

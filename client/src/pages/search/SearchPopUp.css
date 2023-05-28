@@ -1,0 +1,55 @@
+.searchPopUp {
+  display: block;
+  float: left;
+  width: 20%;
+  margin: 3rem 0rem 3rem 3rem;
+  border-radius: 1rem;
+  background-color: rgb(253, 187, 0);
+}
+
+.searchPopUp form {
+  padding: 1rem;
+}
+
+.searchPopUp label {
+  display: inline;
+  font-size: 1.5rem;
+}
+
+.search h1 {
+  margin: 1rem 0rem;
+  color: rgb(91, 94, 83);
+}
+
+.search label {
+  margin: 1rem 0rem;
+}
+
+.search input {
+  height: 4rem;
+  margin: 1rem 0rem;
+}
+
+.options-item {
+  margin: 2rem 1rem;
+}
+
+.options-item input {
+  float: right;
+  width: 8rem;
+}
+
+.options-item label {
+  opacity: 0.5;
+}
+
+#date,
+#destination {
+  width: 100%;
+  border: none;
+}
+
+.searchPopUp button {
+  width: 100%;
+  margin: 5rem 0rem 0rem 0rem;
+}

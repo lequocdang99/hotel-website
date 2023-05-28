@@ -1,0 +1,22 @@
+.nav-bar-item {
+  margin: 1rem 1rem;
+}
+
+.nav-bar-item table {
+  border-spacing: 1rem;
+}
+
+.nav-bar-item td {
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+}
+
+.nav-bar-item i {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+.nav-bar-item td.active {
+  border: 1px solid;
+  border-color: white;
+  border-radius: 2rem;
+}

@@ -1,0 +1,50 @@
+.infoboard {
+  display: flex;
+  height: 20rem;
+  color: rgb(126, 126, 126);
+}
+.infoboard h1 {
+  font-size: 12px;
+}
+.infoboard h2 {
+  font-size: 30px;
+  font-weight: normal;
+}
+#user,
+#order,
+#earning,
+#balance {
+  flex-basis: 25%;
+  height: fit-content;
+}
+i {
+  float: right;
+}
+#user i {
+  padding: 3px;
+  color: red;
+  font-size: 17px;
+  background-color: rgb(255, 204, 204);
+  border-radius: 5px;
+}
+#order i {
+  padding: 3px;
+  color: goldenrod;
+  font-size: 17px;
+  background-color: rgb(248, 237, 210);
+  border-radius: 5px;
+}
+#earning i {
+  padding: 3px;
+  color: green;
+  font-size: 17px;
+  background-color: rgb(204, 230, 204);
+  border-radius: 5px;
+}
+#balance i {
+  padding: 3px;
+  color: blueviolet;
+  font-size: 17px;
+  background-color: rgb(229, 204, 230);
+  border-radius: 5px;
+}
