@@ -23,10 +23,13 @@ exports.postDeleteRoom = async (req, res, next) => {
     //Find room by id
     const room = await Room.findById(id);
     //Find room in transactions
-    Transaction.find({ room: { $all: room.roomNumbers } }).then((result) => {
-      // console.log(result);
+    Transaction.find().then((result) => {
+      const roomList = result.map((trans) => trans.room);
+      const existed = room.roomNumbers.map((e) =>
+        roomList.map((r) => r.includes(e))
+      );
       //If room not in transactions
-      if (result.length === 0) {
+      if (!existed[0].includes(true)) {
         //Delete room and respond
         Room.findOneAndDelete({ _id: id }).then((result) => {
           if (result) {
@@ -85,7 +88,6 @@ exports.postNewRoom = async (req, res, next) => {
 exports.getRoomDetail = (req, res, next) => {
   try {
     const id = req.params.id;
-    const title = req.query.title;
     if (id) {
       Room.findById(id).then((room) => {
         if (room) {
@@ -94,9 +96,6 @@ exports.getRoomDetail = (req, res, next) => {
           res.status(500).json({ message: 'No room found' });
         }
       });
-    }
-    if (title) {
-      console.log(title);
     }
   } catch (e) {
     console.error(e);
@@ -107,19 +106,36 @@ exports.postEditRoom = (req, res, next) => {
   try {
     const id = req.params.id;
     const newRoom = req.body;
-    Room.findOneAndUpdate(id, {
-      title: newRoom.title,
-      desc: newRoom.desc,
-      maxPeople: newRoom.maxPeople,
-      price: newRoom.price,
-      roomNumbers: newRoom.rooms,
-    }).then((room) => {
-      if (room) {
-        res.status(200).json({ result: 'Room updated successfully' });
-      } else {
-        res.status(500).json({ message: 'Cannot update room' });
-      }
+    //Find room in transactions
+    Room.findById(id).then((result) => {
+      const room = result.roomNumbers[0];
+      Transaction.find().then((trans) => {
+        const existed = trans
+          .map((e) => e.room)
+          .map((a) => a.includes(room))
+          .includes(true);
+        //If room not in transactions
+        if (!existed) {
+          Room.findOneAndUpdate(id, {
+            title: newRoom.title,
+            desc: newRoom.desc,
+            maxPeople: newRoom.maxPeople,
+            price: newRoom.price,
+            roomNumbers: newRoom.rooms,
+          }).then((room) => {
+            if (room) {
+              res.status(200).json({ result: 'Room updated successfully' });
+            } else {
+              res.status(500).json({ message: 'Cannot update room' });
+            }
+          });
+          //If room is in transactions
+        } else {
+          res.status(500).json({ message: 'Room in transaction' });
+        }
+      });
     });
+    // });
   } catch (err) {
     console.error(err);
   }

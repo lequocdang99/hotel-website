@@ -90,7 +90,7 @@ const List = () => {
         alert('Hotel deleted successfully');
         window.location.reload();
       } else {
-        console.error(data.message);
+        alert(data.message);
       }
     } catch (err) {
       console.error(err);
@@ -109,7 +109,7 @@ const List = () => {
         alert('Room deleted successfully');
         window.location.reload();
       } else {
-        console.error(data.message);
+        alert(data.message);
       }
     } catch (err) {
       console.error(err);
@@ -148,7 +148,7 @@ const List = () => {
   };
   //Move to edit page
   const editHandler = (id) => {
-    window.location.href = `${url}/edit?id=${id}`;
+    window.location.href = `${url}/edit/${id}`;
   };
   return (
     <div

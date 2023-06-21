@@ -36,7 +36,7 @@ function App() {
           element={isLoggedIn ? <Hotel /> : <Navigate to='/' />}
         />
         <Route
-          path='/hotel/edit'
+          path='/hotel/edit/:id'
           element={isLoggedIn ? <Hotel /> : <Navigate to='/' />}
         />
         <Route
@@ -48,7 +48,7 @@ function App() {
           element={isLoggedIn ? <Room /> : <Navigate to='/' />}
         />
         <Route
-          path='/room/edit'
+          path='/room/edit/:id'
           element={isLoggedIn ? <Room /> : <Navigate to='/' />}
         />
         <Route
