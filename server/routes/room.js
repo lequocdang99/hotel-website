@@ -10,7 +10,7 @@ router.post('/delete', roomController.postDeleteRoom);
 //Create new room
 router.post('/new', roomController.postNewRoom);
 //Get room details
-router.get('/detail?title', roomController.getRoomDetail);
+router.get('/detail/:id', roomController.getRoomDetail);
 //Edit room details
 router.post('/edit/:id', roomController.postEditRoom);
 

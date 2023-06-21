@@ -31,7 +31,7 @@ exports.getSearchedHotel = (req, res, next) => {
       //Find hotel destination
       if (destination) {
         resultHotel = resultHotel.filter((hotel) =>
-          hotel.city.includes(destination)
+          hotel.city.toUpperCase().includes(destination.toUpperCase())
         );
       }
       //Find room availability
@@ -118,12 +118,18 @@ exports.getHotelDetail = (req, res, next) => {
 exports.postDeleteHotel = (req, res, next) => {
   try {
     const id = req.body.id;
-    Hotel.findOneAndDelete({ _id: id }).then((result) => {
+    Transaction.findOne({ hotel: id }).then((result) => {
       if (result) {
-        res.status(200).json({ result: result });
-        console.log('Hotel deleted successfully');
+        res.status(500).json({ message: 'Hotel is in transaction' });
       } else {
-        res.status(500).json({ message: 'Something went wrong' });
+        Hotel.findOneAndDelete({ _id: id }).then((result) => {
+          if (result) {
+            res.status(200).json({ result: result });
+            console.log('Hotel deleted successfully');
+          } else {
+            res.status(500).json({ message: 'Something went wrong' });
+          }
+        });
       }
     });
   } catch (err) {
@@ -170,21 +176,27 @@ exports.postEditHotel = (req, res) => {
   try {
     const id = req.params.id;
     const newHotel = req.body;
-    Hotel.findByIdAndUpdate(id, {
-      name: newHotel.name,
-      city: newHotel.city,
-      type: newHotel.type,
-      address: newHotel.address,
-      distance: newHotel.distance,
-      desc: newHotel.desc,
-      featured: newHotel.featured,
-      images: newHotel.images,
-      rooms: newHotel.rooms,
-    }).then((result) => {
+    Transaction.findOne({ hotel: id }).then((result) => {
       if (result) {
-        res.status(200).json({ result: 'Hotel updated successfully' });
+        res.status(500).json({ message: 'Hotel is in transaction' });
       } else {
-        res.status(500).json({ message: 'Hotel cannot be updated ' });
+        Hotel.findByIdAndUpdate(id, {
+          name: newHotel.name,
+          city: newHotel.city,
+          type: newHotel.type,
+          address: newHotel.address,
+          distance: newHotel.distance,
+          desc: newHotel.desc,
+          featured: newHotel.featured,
+          images: newHotel.images,
+          rooms: newHotel.rooms,
+        }).then((result) => {
+          if (result) {
+            res.status(200).json({ result: 'Hotel updated successfully' });
+          } else {
+            res.status(500).json({ message: 'Hotel cannot be updated ' });
+          }
+        });
       }
     });
   } catch (err) {

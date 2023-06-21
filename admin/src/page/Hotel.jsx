@@ -8,6 +8,7 @@ import styles from './Main.module.css';
 const Hotel = () => {
   //URL path
   const url = window.location.pathname;
+  
   return (
     <div className={styles.main}>
       <Sidebar />

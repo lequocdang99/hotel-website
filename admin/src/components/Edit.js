@@ -12,12 +12,13 @@ const Edit = () => {
   //URL pathname
   const url = window.location.pathname;
   //Detail ID
-  const id = window.location.search.slice(4, 28);
+  const roomId = window.location.pathname.slice(11, 50);
+  const hotelId = window.location.pathname.slice(12, 50);
   //Fetch hotel information
   const hotelInfoHandler = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/hotel/detail/${id}?room=false`
+        `http://localhost:5000/hotel/detail/${hotelId}?room=false`
       );
       const data = await response.json();
       if (data.result) {
@@ -33,7 +34,7 @@ const Edit = () => {
   //Fetch room information
   const roomInfoHandler = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/room/detail/${id}`);
+      const response = await fetch(`http://localhost:5000/room/detail/${roomId}`);
       const data = await response.json();
       if (data.result) {
         setDetail(data.result);
@@ -45,7 +46,7 @@ const Edit = () => {
     }
   };
   useEffect(() => {
-    url === '/hotel/edit' ? hotelInfoHandler() : roomInfoHandler();
+    url.includes('/hotel/edit') ? hotelInfoHandler() : roomInfoHandler();
   }, []);
 
   //Edit room handler
@@ -59,7 +60,7 @@ const Edit = () => {
         price: e.target.elements.price.value,
         rooms: e.target.elements.rooms.value,
       };
-      const response = await fetch(`http://localhost:5000/room/edit/${id}`, {
+      const response = await fetch(`http://localhost:5000/room/edit/${roomId}`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(newRoom),
@@ -69,7 +70,7 @@ const Edit = () => {
         alert(data.result);
         window.location.href = '/room';
       } else {
-        console.error(data.message);
+        alert(data.message);
       }
     } catch (e) {
       console.error(e);
@@ -90,7 +91,7 @@ const Edit = () => {
         images: e.target.elements.images.value,
         rooms: rooms,
       };
-      const response = await fetch(`http://localhost:5000/hotel/edit/${id}`, {
+      const response = await fetch(`http://localhost:5000/hotel/edit/${hotelId}`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(newHotel),
@@ -100,7 +101,7 @@ const Edit = () => {
         alert(data.result);
         window.location.href = '/hotel';
       } else {
-        console.error(data.message);
+        alert(data.message);
       }
     } catch (e) {
       console.error(e);
@@ -136,9 +137,9 @@ const Edit = () => {
   return (
     <div className={styles.card}>
       <header id='hotel-title'>
-        {url === '/hotel/edit' ? 'Edit Hotel' : 'Edit Room'}
+        {url.includes('/hotel/edit/') ? 'Edit Hotel' : 'Edit Room'}
       </header>
-      {url === '/hotel/edit' && detail ? (
+      {url.includes('/hotel/edit') && detail ? (
         <form onSubmit={editHotelHandler}>
           <div className='new'>
             <div id='col1'>

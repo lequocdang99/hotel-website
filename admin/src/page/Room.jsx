@@ -11,7 +11,7 @@ const Room = () => {
     <div className={styles.main}>
       <Sidebar />
       <span>
-        {url === '/room' ? <List /> : url === '/room/edit' ? <Edit /> : <New />}
+        {url === '/room' ? <List /> : url === '/room/new' ? <New /> : <Edit />}
       </span>
     </div>
   );
